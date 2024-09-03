@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalles del Objeto</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            margin: 20px 0;
+            transition: transform 0.3s ease;
+        }
+
+        img:hover {
+            transform: scale(1.1);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .button-container {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .button-link {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 700;
+            transition: background-color 0.3s;
+        }
+
+        .button-link:hover {
+            background-color: #45A049;
+        }
+    </style>
+</head>
+<body>
+    <h1><%= title %></h1>
+    <img src="<%= imageUrl %>" alt="<%= title %>">
+    
+    <p><strong>Cultura:</strong> <%= culture ? culture : 'Sin Información' %></p>
+    <p><strong>Dinastía:</strong> <%= dynasty ? dynasty : 'Sin Información' %></p>
+    <p><strong>Fecha:</strong> <%= date %></p>
+    
+    <% if (additionalImages.length > 0) { %>
+        <h2>Imágenes Adicionales</h2>
+        <div class="grid">
+            <% additionalImages.forEach(img => { %>
+                <div class="card">
+                    <a href="<%= img %>" target="_blank">
+                        <img src="<%= img %>" alt="Imagen adicional de <%= title %>">
+                    </a>
+                </div>
+            <% }) %>
+        </div>
+    <% } %>
+
+    <div class="button-container">
+        <a href="javascript:history.back()" class="button-link">Volver a la búsqueda</a>
+        <a href="/" class="button-link">Volver a la página principal</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,357 @@
+<!-- <!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscar Objetos de Arte</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 40px;
+            font-weight: 700;
+            font-size: 2rem;
+            color: #4CAF50;
+        }
+
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #45A049;
+        }
+    </style>
+</head>
+<body>
+    <h1>Buscar Objetos de Arte</h1>
+    <form action="/search" method="GET">
+        <label for="department">Departamento:</label>
+        <select name="department" id="department">
+            <option value="">Selecciona un departamento</option>
+            <option value="1">Artes Decorativas Americanas</option>
+            <option value="3">Arte del Antiguo Cercano Oriente</option>
+            <option value="4">Armas y Armaduras</option>
+            <option value="5">Artes de África, Oceanía y las Américas</option>
+            <option value="6">Arte Asiático</option>
+            <option value="7">El Claustro</option>
+            <option value="8">El Instituto del Vestuario</option>
+            <option value="9">Dibujos y Grabados</option>
+            <option value="10">Arte Egipcio</option>
+            <option value="11">Pinturas Europeas</option>
+            <option value="12">Escultura y Artes Decorativas Europeas</option>
+            <option value="13">Arte Griego y Romano</option>
+            <option value="14">Arte Islámico</option>
+            <option value="15">La Colección Robert Lehman</option>
+            <option value="16">Las Bibliotecas</option>
+            <option value="17">Arte Medieval</option>
+            <option value="18">Instrumentos Musicales</option>
+            <option value="19">Fotografías</option>
+            <option value="21">Arte Moderno</option>            
+        </select>
+
+        <label for="keyword">Palabra Clave:</label>
+        <input type="text" name="keyword" id="keyword">
+        
+        <label for="location">Localización:</label>
+        <input type="text" name="location" id="location">
+
+        <button type="submit">Buscar</button>
+    </form>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>buscadorMET.org</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 40px;
+            font-weight: 700;
+            font-size: 2rem;
+            color: #4CAF50;
+        }
+
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        input[type="text"], select {
+            width: 95%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #45A049;
+        }
+
+        .faqs {
+            margin-top: 40px;
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .faq {
+            margin-bottom: 20px;
+        }
+
+        .faq h2 {
+            font-size: 1.5rem;
+            color: #4CAF50;
+            cursor: pointer;
+            margin: 0;
+            padding: 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .faq h2:hover {
+            background-color: #f0f0f0;
+        }
+
+        .faq p {
+            display: none;
+            margin: 10px 0 0 0;
+            padding: 0;
+        }
+
+        .t-lista {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-top: 10px;
+        }
+
+        .t-item {
+            display: flex;
+            align-items: center;
+            margin-right: 20px;
+            margin-bottom: 20px;
+        }
+
+        .t-item img {
+            width: 50px;
+            height: 50px;
+            margin-right: 10px;
+        }
+        footer {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 40px;
+        }
+
+        footer a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        footer img {
+            height: 24px;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body>
+    <h1>Buscar Objetos de Arte</h1>
+    <form action="/search" method="GET">
+        <label for="department">Departamento:</label>
+        <select name="department" id="department">
+            <option value="">Selecciona un departamento</option>
+            <option value="1">Artes Decorativas Americanas</option>
+            <option value="3">Arte del Antiguo Cercano Oriente</option>
+            <option value="4">Armas y Armaduras</option>
+            <option value="5">Artes de África, Oceanía y las Américas</option>
+            <option value="6">Arte Asiático</option>
+            <option value="7">El Claustro</option>
+            <option value="8">El Instituto del Vestuario</option>
+            <option value="9">Dibujos y Grabados</option>
+            <option value="10">Arte Egipcio</option>
+            <option value="11">Pinturas Europeas</option>
+            <option value="12">Escultura y Artes Decorativas Europeas</option>
+            <option value="13">Arte Griego y Romano</option>
+            <option value="14">Arte Islámico</option>
+            <option value="15">La Colección Robert Lehman</option>
+            <option value="16">Las Bibliotecas</option>
+            <option value="17">Arte Medieval</option>
+            <option value="18">Instrumentos Musicales</option>
+            <option value="19">Fotografías</option>
+            <option value="21">Arte Moderno</option>  
+        </select>
+
+        <label for="keyword">Palabra Clave:</label>
+        <input type="text" name="keyword" id="keyword">
+        
+        <label for="location">Localización:</label>
+        <input type="text" name="location" id="location">
+
+        <button type="submit">Buscar</button>
+    </form>
+
+    <div>
+        <br>
+    </div>
+
+    <div class="faqs">
+        <div class="faq">
+            <h2>¿Qué es el buscadorMET.org?</h2>
+            <p>Es un proyecto de libre uso realizado como trabajo final integrador para la materia Programación Web II.</p>
+        </div>
+
+        <div class="faq">
+            <h2>¿Cómo se usa?</h2>
+            <p>Puedes buscar los objetos de arte del MET que te interesen, filtrándolos por el departamento al que pertenecen, por una palabra clave, o según la localización. O todo junto!</p>
+        </div>
+
+        <div class="faq">
+            <h2>¿Por qué debería usarlo?</h2>
+            <p>Este buscador te permite explorar fácilmente la gigantezca colección de objetos del Museo Metropolitano de Arte de Nueva York, facilitando la búsqueda de obras según tus intereses específicos.</p>
+        </div>
+
+        <div class="faq">
+            <h2>¿Es gratis?</h2>
+            <p>Sí, este proyecto es completamente gratuito y de código abierto, con el objetivo de promover el acceso a la cultura y el arte.</p>
+        </div>
+
+        <div class="faq">
+            <h2>Tecnologías usadas</h2>
+            <div class="t-lista">
+                <div class="t-item">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/9/99/Unofficial_JavaScript_logo_2.svg" alt="JavaScript">
+                    JavaScript
+                </div>
+                <div class="t-item">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/d/d9/Node.js_logo.svg" alt="Node.js">
+                    Node.js
+                </div>
+                <div class="t-item">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/6/64/Expressjs.png" alt="Express.js">
+                    Express.js 
+                </div>
+                <div class="t-item">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_wordmark.svg/640px-HTML5_logo_and_wordmark.svg.png" alt="HTML5">
+                    HTML 5
+                </div>
+                <div class="t-item">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/CSS3_logo.svg/640px-CSS3_logo.svg.png" alt="CSS3">
+                    CSS 3
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <p>Desarrollado por Martin Norton</p>
+        <div style="display: flex; justify-content: center; gap: 15px; margin-top: 10px;">
+            <a href="https://github.com/Martin-Norton" target="_blank">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="GitHub Logo">
+            </a>
+            <a href="https://x.com/m__norton" target="_blank">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/X_logo_2023.svg/640px-X_logo_2023.svg.png" alt="X Logo">
+            </a>
+            <a href="https://www.instagram.com/m__norton?igsh=Y2ZpenVlYXRobTU5&utm_source=qr" target="_blank">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram Logo">
+            </a>
+        </div>
+    </footer>
+    <script>
+        document.querySelectorAll('.faq h2').forEach(faqTitle => {
+            faqTitle.addEventListener('click', () => {
+                const answer = faqTitle.nextElementSibling;
+                answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
+            });
+        });
+
+    </script>
+</body>
+</html>
