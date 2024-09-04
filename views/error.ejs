@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+    <link rel="icon" href="met.png" type="image/png">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Error</title>
@@ -48,14 +49,13 @@
         }
 
         .error-container a:hover {
-            background-color: #45A049;
+            background-color: #dc4d4d;
         }
     </style>
 </head>
 <body>
     <div class="error-container">
         <h1>Ocurrió un Error</h1>
-        <h3 class="error-code">Error: <%= code %></h3>
         <p><%= error %></p>
         <a href="/">Volver a la página principal</a>
     </div>
