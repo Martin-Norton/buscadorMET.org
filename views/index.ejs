@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <link rel="icon" href="met.png" type="image/png">
 
+<head>
+    <link rel="icon" href="/images/met.png" type="image/png">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>buscadorMET</title>
-    <style>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/buscador.css">
+
+    <!-- <style>
         body {
             font-family: 'Roboto', sans-serif;
             background-color: #f0f0f0;
@@ -135,11 +137,13 @@
             height: 24px;
             vertical-align: middle;
         }
-    </style>
+    </style> -->
+
 </head>
+
 <body>
     <h1>Buscar Objetos de Arte</h1>
-    <form action="/search" method="GET">
+    <form id="search-form" action="/search" method="GET">
         <label for="department">Departamento:</label>
         <select name="department" id="department">
             <option value="">Selecciona un departamento</option>
@@ -161,14 +165,14 @@
             <option value="17">Arte Medieval</option>
             <option value="18">Instrumentos Musicales</option>
             <option value="19">Fotografías</option>
-            <option value="21">Arte Moderno</option>  
+            <option value="21">Arte Moderno</option>
         </select>
 
         <label for="keyword">Palabra Clave:</label>
-        <input type="text" name="keyword" id="keyword">
-        
+        <input type="text" name="keyword" id="keyword" placeholder="Por ejemplo: Armaduras">
+
         <label for="location">Localización:</label>
-        <input type="text" name="location" id="location">
+        <input type="text" name="location" id="location" placeholder="Por ejemplo: Europa">
 
         <button type="submit">Buscar</button>
     </form>
@@ -180,29 +184,34 @@
     <div class="faqs">
         <div class="faq">
             <h2>¿Qué es el buscadorMET.org?</h2>
-            <p>Es un proyecto de libre uso realizado como trabajo final integrador para la materia Programación Web II.</p>
+            <p>Es un proyecto de libre uso realizado como trabajo final integrador para la materia Programación Web II.
+            </p>
         </div>
 
         <div class="faq">
             <h2>¿Cómo se usa?</h2>
-            <p>Puedes buscar los objetos de arte del MET que te interesen, filtrándolos por el departamento al que pertenecen, por una palabra clave, o según la localización. O todo junto!</p>
+            <p>Puedes buscar los objetos de arte del MET que te interesen, filtrándolos por el departamento al que
+                pertenecen, por una palabra clave, o según la localización. ¡O todo junto!</p>
         </div>
 
         <div class="faq">
             <h2>¿Por qué debería usarlo?</h2>
-            <p>Este buscador te permite explorar fácilmente la gigantezca colección de objetos del Museo Metropolitano de Arte de Nueva York, facilitando la búsqueda de obras según tus intereses específicos.</p>
+            <p>Este buscador te permite explorar fácilmente la gigantesca colección de objetos del Museo Metropolitano
+                de Arte de Nueva York, facilitando la búsqueda de obras según tus intereses específicos.</p>
         </div>
 
         <div class="faq">
             <h2>¿Es gratis?</h2>
-            <p>Sí, este proyecto es completamente gratuito y de código abierto, con el objetivo de promover el acceso a la cultura y el arte.</p>
+            <p>Sí, este proyecto es completamente gratuito y de código abierto, con el objetivo de promover el acceso a
+                la cultura y el arte.</p>
         </div>
 
         <div class="faq">
             <h2>Tecnologías usadas</h2>
-            <div class="t-lista">
+            <div class="t-lista" style="display:none;">
                 <div class="t-item">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/9/99/Unofficial_JavaScript_logo_2.svg" alt="JavaScript">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/9/99/Unofficial_JavaScript_logo_2.svg"
+                        alt="JavaScript">
                     JavaScript
                 </div>
                 <div class="t-item">
@@ -211,41 +220,62 @@
                 </div>
                 <div class="t-item">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/6/64/Expressjs.png" alt="Express.js">
-                    Express.js 
+                    Express.js
                 </div>
                 <div class="t-item">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_wordmark.svg/640px-HTML5_logo_and_wordmark.svg.png" alt="HTML5">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_wordmark.svg/640px-HTML5_logo_and_wordmark.svg.png"
+                        alt="HTML5">
                     HTML 5
                 </div>
                 <div class="t-item">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/CSS3_logo.svg/640px-CSS3_logo.svg.png" alt="CSS3">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/CSS3_logo.svg/640px-CSS3_logo.svg.png"
+                        alt="CSS3">
                     CSS 3
                 </div>
             </div>
         </div>
     </div>
+
     <footer>
         <p>Desarrollado por Martin Norton</p>
         <div style="display: flex; justify-content: center; gap: 15px; margin-top: 10px;">
             <a href="https://github.com/Martin-Norton" target="_blank">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="GitHub Logo">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg"
+                    alt="GitHub Logo">
             </a>
-            <a href="https://x.com/m__norton" target="_blank">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/X_logo_2023.svg/640px-X_logo_2023.svg.png" alt="X Logo">
+            <a href="https://x.com" target="_blank">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/X_logo_2023.svg/640px-X_logo_2023.svg.png"
+                    alt="X Logo">
             </a>
-            <a href="https://www.instagram.com/m__norton?igsh=Y2ZpenVlYXRobTU5&utm_source=qr" target="_blank">
+            <a href="https://www.instagram.com" target="_blank">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram Logo">
             </a>
         </div>
     </footer>
+
     <script>
         document.querySelectorAll('.faq h2').forEach(faqTitle => {
             faqTitle.addEventListener('click', () => {
                 const answer = faqTitle.nextElementSibling;
-                answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
+                if (answer) {
+                    answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
+                    console.log(`Clic en ${faqTitle.innerText}`);
+                }
             });
         });
-
+    </script>
+    <script>
+        document.getElementById('search-form').addEventListener('submit', function(event) {
+            var department = document.getElementById('department').value.trim();
+            var keyword = document.getElementById('keyword').value.trim();
+            var location = document.getElementById('location').value.trim();
+    
+            if (department === '' && keyword === '' && location === '') {
+                alert('Por favor, selecciona un departamento, o ingresa una palabra clave o localización para realizar la búsqueda.');
+                event.preventDefault();
+            }
+        });
     </script>
 </body>
+
 </html>
