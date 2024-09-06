@@ -5,80 +5,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Detalles del Objeto</title>
-    <link rel="stylesheet" href="/css/styles.css">
-    <link rel="stylesheet" href="/css/object.css">
-    <!-- <style>
-        body {
-            font-family: 'Roboto', sans-serif;
-            background-color: #f0f0f0;
-            color: #333;
-            margin: 0;
-            padding: 20px;
-            text-align: center;
-        }
-
-        img {
-            max-width: 100%;
-            height: auto;
-            margin: 20px 0;
-            transition: transform 0.3s ease;
-        }
-
-        img:hover {
-            transform: scale(1.1);
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            justify-content: center;
-        }
-
-        .card {
-            background-color: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-        }
-
-        .button-container {
-            margin-top: 20px;
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-        }
-
-        .button-link {
-            display: inline-block;
-            padding: 10px 20px;
-            background-color: #b31b1b;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: 700;
-            transition: background-color 0.3s;
-        }
-
-        .button-link:hover {
-            background-color:#dc4d4d;
-        }
-    </style> -->
+    <link rel="stylesheet" href="/css/styles.css"> <!-- hoja de estilos general -->
+    <link rel="stylesheet" href="/css/object.css"> <!-- hoja de estilos especifica de la vista -->
 </head>
 <body>
     <h1><%= title %></h1>
     <img src="<%= imageUrl %>" alt="<%= title %>">
     
-    <p><strong>Cultura:</strong> <%= culture ? culture : 'Sin Información' %></p>
-    <p><strong>Dinastía:</strong> <%= dynasty ? dynasty : 'Sin Información' %></p>
+    <p><strong>Cultura:</strong> <%= culture ? culture : 'Sin Información' %></p><!-- si el objeto no posee atributo de cultura muestra ese mensaje  -->
+    <p><strong>Dinastía:</strong> <%= dynasty ? dynasty : 'Sin Información' %></p> <!-- si el objeto no posee atributo de dinastia muestra ese mensaje"  -->
     <p><strong>Fecha:</strong> <%= date %></p>
     
+    <!--manejo de cards si el object tien imagenes adicionales-->
     <% if (additionalImages.length > 0) { %>
         <h2>Imágenes Adicionales</h2>
         <div class="grid">
@@ -93,8 +31,10 @@
     <% } %>
 
     <div class="button-container">
-        <a href="javascript:history.back()" class="button-link">Volver a la búsqueda</a>
-        <a href="/" class="button-link">Volver a la página principal</a>
+        <a href="javascript:history.back()" class="button-link">Volver a la búsqueda</a> <!--boton para volver a los resultados de la busqueda-->
+        <a href="/" class="button-link">Volver a la página principal</a> <!--boton para volver a la pagina principal-->
     </div>
+    <!-- se incluye el pie de pagina mediante el archivo partials/footer.ejs  -->
+    <%- include('partials/footer') %>
 </body>
 </html>

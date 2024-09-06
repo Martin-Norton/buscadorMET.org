@@ -5,55 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Error</title>
-    <link rel="stylesheet" href="/css/styles.css">
-    <link rel="stylesheet" href="/css/error.css">
-    <!-- <style>
-        body {
-            font-family: 'Roboto', sans-serif;
-            background-color: #f0f0f0;
-            color: #333;
-            margin: 0;
-            padding: 20px;
-        }
-
-        h1 {
-            text-align: center;
-            margin-bottom: 40px;
-            font-weight: 700;
-            font-size: 2rem;
-            color: #b31b1b;
-        }
-
-        .error-container {
-            max-width: 600px;
-            margin: 0 auto;
-            background-color: white;
-            border-radius: 10px;
-            padding: 20px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        .error-container p {
-            font-size: 1rem;
-            color: #555;
-        }
-
-        .error-container a {
-            display: inline-block;
-            padding: 10px 20px;
-            background-color: #b31b1b;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: 700;
-            text-align: center;
-            transition: background-color 0.3s;
-        }
-
-        .error-container a:hover {
-            background-color: #dc4d4d;
-        }
-    </style> -->
+    <link rel="stylesheet" href="/css/styles.css"> <!-- hoja de estilos general -->
+    <link rel="stylesheet" href="/css/error.css"> <!-- hoja de estilos especifica de la vista -->
 </head>
 <body>
     <div class="error-container">
@@ -61,5 +14,7 @@
         <p><%= error %></p>
         <a href="/">Volver a la página principal</a>
     </div>
+    <!-- se incluye el pie de pagina mediante el archivo partials/footer.ejs  -->
+    <%- include('partials/footer') %>
 </body>
 </html>

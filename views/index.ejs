@@ -6,145 +6,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>buscadorMET</title>
-    <link rel="stylesheet" href="/css/styles.css">
-    <link rel="stylesheet" href="/css/buscador.css">
-
-    <!-- <style>
-        body {
-            font-family: 'Roboto', sans-serif;
-            background-color: #f0f0f0;
-            color: #333;
-            margin: 0;
-            padding: 20px;
-        }
-
-        h1 {
-            text-align: center;
-            margin-bottom: 40px;
-            font-weight: 700;
-            font-size: 2rem;
-            color: #b31b1b;
-        }
-
-        form {
-            max-width: 600px;
-            margin: 0 auto;
-            background-color: white;
-            border-radius: 10px;
-            padding: 20px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        label {
-            display: block;
-            margin-bottom: 10px;
-            font-weight: 700;
-        }
-
-        input[type="text"], select {
-            width: 95%;
-            padding: 10px;
-            margin-bottom: 20px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-
-        button {
-            display: inline-block;
-            padding: 10px 20px;
-            background-color: #b31b1b;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            font-weight: 700;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        button:hover {
-            background-color: #dc4d4d;
-        }
-
-        .faqs {
-            margin-top: 40px;
-            max-width: 600px;
-            margin: 0 auto;
-            background-color: white;
-            border-radius: 10px;
-            padding: 20px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        .faq {
-            margin-bottom: 20px;
-        }
-
-        .faq h2 {
-            font-size: 1.5rem;
-            color: #b31b1b;
-            cursor: pointer;
-            margin: 0;
-            padding: 10px;
-            border-radius: 5px;
-            transition: background-color 0.3s;
-        }
-
-        .faq h2:hover {
-            background-color: #f0f0f0;
-        }
-
-        .faq p {
-            display: none;
-            margin: 10px 0 0 0;
-            padding: 0;
-        }
-
-        .t-lista {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            margin-top: 10px;
-        }
-
-        .t-item {
-            display: flex;
-            align-items: center;
-            margin-right: 20px;
-            margin-bottom: 20px;
-        }
-
-        .t-item img {
-            width: 50px;
-            height: 50px;
-            margin-right: 10px;
-        }
-        footer {
-            background-color: #b31b1b;
-            color: white;
-            text-align: center;
-            padding: 20px 0;
-            margin-top: 40px;
-        }
-
-        footer a {
-            color: white;
-            text-decoration: none;
-            margin: 0 10px;
-        }
-
-        footer img {
-            height: 24px;
-            vertical-align: middle;
-        }
-    </style> -->
-
+    <link rel="stylesheet" href="/css/styles.css"> <!-- hoja de estilos general -->
+    <link rel="stylesheet" href="/css/buscador.css"> <!-- hoja de estilos especifica de la vista -->
 </head>
 
 <body>
+    <!-- formulario de busqueda de objetos  -->
     <h1>Buscar Objetos de Arte</h1>
     <form id="search-form" action="/search" method="GET">
         <label for="department">Departamento:</label>
+        <!-- select para filtrar por depto, en base a lo selccionado le asigna el id correspondiente para la busqueda -->
+        <!-- Info obtenida del endpoint de la api: https://collectionapi.metmuseum.org/public/collection/v1/departments -->
         <select name="department" id="department">
             <option value="">Selecciona un departamento</option>
             <option value="1">Artes Decorativas Americanas</option>
@@ -180,7 +52,7 @@
     <div>
         <br>
     </div>
-
+    <!--apartado de pregntas frecuentes-->
     <div class="faqs">
         <div class="faq">
             <h2>¿Qué es el buscadorMET.org?</h2>
@@ -236,24 +108,11 @@
         </div>
     </div>
 
-    <footer>
-        <p>Desarrollado por Martin Norton</p>
-        <div style="display: flex; justify-content: center; gap: 15px; margin-top: 10px;">
-            <a href="https://github.com/Martin-Norton" target="_blank">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg"
-                    alt="GitHub Logo">
-            </a>
-            <a href="https://x.com" target="_blank">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/X_logo_2023.svg/640px-X_logo_2023.svg.png"
-                    alt="X Logo">
-            </a>
-            <a href="https://www.instagram.com" target="_blank">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram Logo">
-            </a>
-        </div>
-    </footer>
+    <!-- se incluye el pie de pagina mediante el archivo partials/footer.ejs  -->
+    <%- include('partials/footer') %>
 
     <script>
+        // logica para clickear encabezado de FAQs y asi mostrar/ocultar respuestas
         document.querySelectorAll('.faq h2').forEach(faqTitle => {
             faqTitle.addEventListener('click', () => {
                 const answer = faqTitle.nextElementSibling;
@@ -263,8 +122,7 @@
                 }
             });
         });
-    </script>
-    <script>
+        // Validacion de campos del formulario de busqueda
         document.getElementById('search-form').addEventListener('submit', function(event) {
             var department = document.getElementById('department').value.trim();
             var keyword = document.getElementById('keyword').value.trim();
