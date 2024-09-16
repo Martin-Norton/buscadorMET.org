@@ -1,9 +1,9 @@
-//manejo de la interacción con la API del Museo Metropolitano y la traducción
+//manejo de la interacción con la API y la traducción
 const axios = require('axios');
 const translate = require('node-google-translate-skidz'); 
 const MET_API_URL = 'https://collectionapi.metmuseum.org/public/collection/v1';
 
-//traduccion del texto
+//traduccion de los campos
 async function translateText(text) {
     try {
         if (!text) return '';
@@ -20,16 +20,16 @@ async function translateText(text) {
 }
 
 // busqueda de objetos en la api del museo 
-async function searchObjects({ keyword, department, location }) {
-    let searchUrl = `${MET_API_URL}/search?hasImages=true&q=${keyword || ''}`;//si hay un valor en el campo keyword, se agrega a la url
+async function searchObjects({ q, departmentId, geoLocation }) {
+    let searchUrl = `${MET_API_URL}/search?hasImages=true&q=${q || ''}`;//si hay un valor en el campo keyword, se agrega a la url
     //si hay un valor en el campo departamento, se agrega a la url
-    if (department) {
-        searchUrl += `&department=${department}`;
+    if (departmentId) {
+        searchUrl += `&department=${departmentId}`;
     }
 
     //si hay un valor en el campo location, se agrega a la url
-    if (location) {
-        searchUrl += `&country=${location}`;
+    if (geoLocation) {
+        searchUrl += `&geoLocation=${geoLocation}`;
     }
 
     //limita las busquedas a los 500 primeros objetos debido a la demora de la api

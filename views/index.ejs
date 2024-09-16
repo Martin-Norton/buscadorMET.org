@@ -14,10 +14,10 @@
     <!-- formulario de busqueda de objetos  -->
     <h1>Buscar Objetos de Arte</h1>
     <form id="search-form" action="/search" method="GET">
-        <label for="department">Departamento:</label>
+        <label for="departmentId">Departamento:</label>
         <!-- select para filtrar por depto, en base a lo selccionado le asigna el id correspondiente para la busqueda -->
         <!-- Info obtenida del endpoint de la api: https://collectionapi.metmuseum.org/public/collection/v1/departments -->
-        <select name="department" id="department">
+        <select name="departmentId" id="department">
             <option value="">Selecciona un departamento</option>
             <option value="1">Artes Decorativas Americanas</option>
             <option value="3">Arte del Antiguo Cercano Oriente</option>
@@ -40,11 +40,11 @@
             <option value="21">Arte Moderno</option>
         </select>
 
-        <label for="keyword">Palabra Clave:</label>
-        <input type="text" name="keyword" id="keyword" placeholder="Por ejemplo: Armaduras">
+        <label for="q">Palabra Clave:</label>
+        <input type="text" name="q" id="keyword" placeholder="Por ejemplo: Armaduras">
 
-        <label for="location">Localización:</label>
-        <input type="text" name="location" id="location" placeholder="Por ejemplo: Europa">
+        <label for="geoLocation">Localización:</label>
+        <input type="text" name="geoLocation" id="location" placeholder="Por ejemplo: Europa">
 
         <button type="submit">Buscar</button>
     </form>

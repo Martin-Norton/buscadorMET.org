@@ -10,7 +10,7 @@
 </head>
 <body>
     <h1>Resultados de la Búsqueda</h1>
-    <div class="grid"> <!-- Grilla en la que muestra cada objeto de la busqueda mediante cards  -->
+    <div class="grid"> <!-- Grilla -->
         <% objects.forEach(object => { %>
             <div class="card">
                  <% if (object.imageUrl === null || object.imageUrl === "") { %> <!--Validación de si tiene Imagen -->
@@ -36,10 +36,10 @@
     </div>
     <div class="pagination"> <!-- manejo de la paginacion  -->
         <% if (page > 1) { %><!-- se maneja la paginacion en base a si esta en la primera pagina o no  -->
-            <a href="/search?page=<%= page-1 %>&keyword=<%= keyword %>&department=<%= department %>&location=<%= location %>">Anterior</a> <!-- si lo esta, agrega el boton "anterior" -->
+            <a href="/search?page=<%= page-1 %>&q=<%= q %>&departmentId=<%= departmentId %>&geoLocation=<%= geoLocation %>">Anterior</a> <!-- si lo esta, agrega el boton "anterior" -->
         <% } %>
         <% if (page < totalPages) { %>
-            <a href="/search?page=<%= ++page %>&keyword=<%= keyword %>&department=<%= department %>&location=<%= location %>">Siguiente</a>
+            <a href="/search?page=<%= ++page %>&q=<%= q %>&departmentId=<%= departmentId %>&geoLocation=<%= geoLocation %>">Siguiente</a>
         <% } %>
         <a href="/" class="button-link">Volver a la página principal</a>
     </div>
