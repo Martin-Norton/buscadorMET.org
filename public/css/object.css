@@ -1,4 +1,30 @@
 /* Estilos para la view objects */
+.main-card {
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 800px;
+    text-align: center;
+}
+
+.main-card h1 {
+    margin-bottom: 20px;
+}
+
+.main-card img {
+    max-width: 100%;
+    height: auto;
+    margin: 20px 0;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.main-card img:hover {
+    transform: scale(1.1);
+}
+
 img {
     max-width: 100%;
     height: auto;

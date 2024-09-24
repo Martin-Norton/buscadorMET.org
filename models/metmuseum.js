@@ -20,20 +20,19 @@ async function translateText(text) {
 }
 
 // busqueda de objetos en la api del museo 
-async function searchObjects({ q, departmentId, geoLocation }) {
-    let searchUrl = `${MET_API_URL}/search?hasImages=true&q=${q || ''}`;//si hay un valor en el campo keyword, se agrega a la url
-    //si hay un valor en el campo departamento, se agrega a la url
-    if (departmentId) {
-        searchUrl += `&department=${departmentId}`;
-    }
-
+async function searchObjects({departmentId, geoLocation, q}) {
+    let searchUrl = `${MET_API_URL}/search?hasImages=true&departmentId=${departmentId|| ''}`;//si hay un valor en el campo keyword, se agrega a la url
     //si hay un valor en el campo location, se agrega a la url
     if (geoLocation) {
         searchUrl += `&geoLocation=${geoLocation}`;
+    }  
+   //si hay un valor en el campo departamento, se agrega a la url
+    if (q) {
+        searchUrl += `&q=${q}`;
     }
 
     //limita las busquedas a los 500 primeros objetos debido a la demora de la api
-    searchUrl += `&limit=${500}`;
+    searchUrl += `&limit=${20}`;
 
     const searchResponse = await axios.get(searchUrl);
     const objectIDs = searchResponse.data.objectIDs;

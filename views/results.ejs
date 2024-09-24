@@ -22,8 +22,17 @@
                 <div class="card-content">
                     <div>
                         <h3><%= object.title %></h3>
-                        <p><%= object.culture %></p>
-                        <p><%= object.dynasty %></p>
+                        <% if (object.culture && object.culture.trim() !== "") { %>
+                            <p>Cultura: <%= object.culture %></p>
+                        <% } else { %>
+                            <p>Cultura no disponible</p>
+                        <% } %>
+
+                        <% if (object.dynasty && object.dynasty.trim() !== "") { %>
+                            <p>Dinastía: <%= object.dynasty %></p>
+                        <% } else { %>
+                            <p>Dinastía no disponible</p>
+                        <% } %>
                     </div>
                     <% if (object.additionalImages.length > 0) { %> 
                         <a href="/object/<%= object.id %>" class="button-link">Ver imágenes adicionales</a> <!-- si el objeto posee mas de una img muestra este boton  -->
@@ -36,10 +45,10 @@
     </div>
     <div class="pagination"> <!-- manejo de la paginacion  -->
         <% if (page > 1) { %><!-- se maneja la paginacion en base a si esta en la primera pagina o no  -->
-            <a href="/search?page=<%= page-1 %>&q=<%= q %>&departmentId=<%= departmentId %>&geoLocation=<%= geoLocation %>">Anterior</a> <!-- si lo esta, agrega el boton "anterior" -->
+            <a href="/search?page=<%= page-1 %>&departmentId=<%= departmentId %>&eoLocation=<%= geoLocation %>&q=<%= q %>">Anterior</a> <!-- si lo esta, agrega el boton "anterior" -->
         <% } %>
         <% if (page < totalPages) { %>
-            <a href="/search?page=<%= ++page %>&q=<%= q %>&departmentId=<%= departmentId %>&geoLocation=<%= geoLocation %>">Siguiente</a>
+            <a href="/search?page=<%= ++page %>&departmentId=<%= departmentId %>&eoLocation=<%= geoLocation %>&q=<%= q %>">Siguiente</a>
         <% } %>
         <a href="/" class="button-link">Volver a la página principal</a>
     </div>

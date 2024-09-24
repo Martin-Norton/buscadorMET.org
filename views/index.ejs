@@ -40,12 +40,29 @@
             <option value="21">Arte Moderno</option>
         </select>
 
+        <label for="geoLocation">Localización:</label>
+        <select name="geoLocation" id="department">
+            <option value="">Selecciona una Localización</option>
+            <option value="Europe">Europa</option>
+            <option value="France">Francia</option>
+            <option value="Paris">Paris</option>
+            <option value="China">China</option>
+            <option value="New York">Nueva York</option>
+            <option value="Asia">Asia</option>
+            <option value="Africa">África</option>
+            <option value="Rome">Roma</option>
+            <option value="Italy">Italia</option>
+            <option value="Spain">España</option>
+            <option value="Greece">Grecia</option>
+            <option value="Canada">Canadá</option>
+            <option value="Venice">Venecia</option>
+            <option value="Poland"> Polonia </option>
+            <option value="United States">Estados Unidos</option>
+        </select>
+      
         <label for="q">Palabra Clave:</label>
         <input type="text" name="q" id="keyword" placeholder="Por ejemplo: Armaduras">
-
-        <label for="geoLocation">Localización:</label>
-        <input type="text" name="geoLocation" id="location" placeholder="Por ejemplo: Europa">
-
+      
         <button type="submit">Buscar</button>
     </form>
 
@@ -128,8 +145,8 @@
             var keyword = document.getElementById('keyword').value.trim();
             var location = document.getElementById('location').value.trim();
     
-            if (department === '' && keyword === '' && location === '') {
-                alert('Por favor, selecciona un departamento, o ingresa una palabra clave o localización para realizar la búsqueda.');
+            if (keyword === '') {
+                alert('Por favor,ingresa una palabra clave para realizar la búsqueda.');
                 event.preventDefault();
             }
         });

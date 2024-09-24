@@ -9,13 +9,16 @@
     <link rel="stylesheet" href="/css/object.css"> <!-- hoja de estilos especifica de la vista -->
 </head>
 <body>
+  <div class="main-card">
+    
+  
     <h1><%= title %></h1>
     <img src="<%= imageUrl %>" alt="<%= title %>">
     
     <p><strong>Cultura:</strong> <%= culture ? culture : 'Sin Información' %></p><!-- si el objeto no posee atributo de cultura muestra ese mensaje  -->
     <p><strong>Dinastía:</strong> <%= dynasty ? dynasty : 'Sin Información' %></p> <!-- si el objeto no posee atributo de dinastia muestra ese mensaje"  -->
     <p><strong>Fecha:</strong> <%= date %></p>
-    
+  </div>
     <!--manejo de cards si el object tien imagenes adicionales-->
     <% if (additionalImages.length > 0) { %>
         <h2>Imágenes Adicionales</h2>

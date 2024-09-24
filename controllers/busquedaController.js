@@ -3,10 +3,10 @@ const { searchObjects } = require('../models/metmuseum'); //indica el archivo de
 
 //funcion asincronica que obtiene los resultados
 async function search(req, res) {
-    const { q, departmentId, geoLocation, page = 1 } = req.query; //obtiene los valores del formulario
+    const { departmentId, geoLocation, q, page = 1 } = req.query; //obtiene los valores del formulario
 
     try {
-        const objects = await searchObjects({q, departmentId, geoLocation }); 
+        const objects = await searchObjects({ departmentId, geoLocation, q }); 
 
         const filteredObjects = objects.filter(obj => obj !== null && obj.imageUrl); //filtra los objetos que no tienen imagen o no existen
         const totalPages = Math.ceil(filteredObjects.length / 20); //obtiene el total de paginas 
@@ -16,9 +16,9 @@ async function search(req, res) {
             objects: objectsToShow, 
             page: parseInt(page), 
             totalPages,
-            q,
             departmentId,
-            geoLocation 
+            geoLocation,
+            q
         });
     } catch (error) { //manejo de los errors
         console.error(error);
@@ -28,3 +28,4 @@ async function search(req, res) {
 
 //exporta las funciones
 module.exports = { search };
+
